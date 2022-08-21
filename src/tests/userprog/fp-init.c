@@ -5,9 +5,10 @@
 #include "tests/main.h"
 
 #define FPU_SIZE 108
-const char* test_name = "fp-init";
 
 void test_main(void) {
+  test_name = "fp-init";
+
   uint8_t fpu[FPU_SIZE];
   uint8_t init_fpu[FPU_SIZE];
   asm("fsave (%0); fninit; fsave (%1)" : : "g"(&fpu), "g"(&init_fpu));
